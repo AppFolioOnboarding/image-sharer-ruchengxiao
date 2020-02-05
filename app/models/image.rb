@@ -11,14 +11,14 @@ class Image < ApplicationRecord
       return
     end
 
-    errors.add(:base, :link_invalid, message: 'Link is not an image address') unless is_image?      
+    errors.add(:base, :link_invalid, message: 'Link is not an image address') unless image?      
   end
 
-  def is_image?
+  def image?
     url = URI.parse(link)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
 
-    return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+    http.head(url.request_uri)['Content-Type'].start_with? 'image'
   end
 end

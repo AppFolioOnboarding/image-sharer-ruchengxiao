@@ -26,3 +26,7 @@
 .image {
   width: 400px;
 }
+
+.flash-success {
+  background-color: #33FFE9;
+}

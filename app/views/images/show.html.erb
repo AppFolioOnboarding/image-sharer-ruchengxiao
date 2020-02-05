@@ -1,3 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div class="flash-success">
+    <%= msg %>
+  </div>
+<% end %>
 <p>
     <img class="image" src="<%= @image.link %>"/>
 </p>

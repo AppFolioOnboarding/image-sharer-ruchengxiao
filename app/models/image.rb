@@ -4,24 +4,21 @@ class Image < ApplicationRecord
   validate :check_link
 
   private
-    def check_link
-      if !(link =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix)
-        errors.add(:base, :link_invalid, message: "Link is invalid")
-        return
-      end
 
-      if !isImage?
-        errors.add(:base, :link_invalid, message: "Link is not an image address")
-      end 
+  def check_link
+    if link !~ %r{^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$}ix
+      errors.add(:base, :link_invalid, message: 'Link is invalid')
+      return
     end
 
-    def isImage?
-      url = URI.parse(link)
-      http = Net::HTTP.new(url.host, url.port)
-      http.use_ssl = true
+    errors.add(:base, :link_invalid, message: 'Link is not an image address') unless is_image?      
+  end
 
-      http.start do |http|
-        return http.head(url.request_uri)['Content-Type'].start_with? 'image'
-      end
-    end
+  def is_image?
+    url = URI.parse(link)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+
+    return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+  end
 end

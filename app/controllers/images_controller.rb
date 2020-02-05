@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-
   def new
     @image = Image.new
   end
@@ -13,7 +12,6 @@ class ImagesController < ApplicationController
   end
 
   def create
-
     @image = Image.new(image_params)
 
     if @image.save
@@ -24,7 +22,8 @@ class ImagesController < ApplicationController
   end
 
   private
-    def image_params
-      params.require(:image).permit(:link, :tag)
-    end
+
+  def image_params
+    params.require(:image).permit(:link, :tag)
+  end
 end

@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_230356) do
   create_table "images", force: :cascade do |t|
     t.string "link"
     t.string "tag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

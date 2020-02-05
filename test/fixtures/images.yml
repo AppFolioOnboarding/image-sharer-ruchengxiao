@@ -2,8 +2,6 @@
 
 one:
   link: MyString
-  tag: MyString
 
 two:
   link: MyString
-  tag: MyString

@@ -11,7 +11,7 @@ class Image < ApplicationRecord
       return
     end
 
-    errors.add(:base, :link_invalid, message: 'Link is not an image address') unless image?      
+    errors.add(:base, :link_invalid, message: 'Link is not an image address') unless image?
   end
 
   def image?

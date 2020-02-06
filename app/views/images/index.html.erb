@@ -1,0 +1,17 @@
+
+<h1>Listing Articles</h1>
+ 
+<%= link_to 'New image', new_image_path %>
+<br />
+<% @images.each do |image| %>
+
+  <p>
+    <img class="image" src="<%= image.link %>"/>
+  </p>
+
+	<p>
+		<%= link_to 'Show', image_path(image) %>
+	</p>
+	<br />
+	
+<% end %>

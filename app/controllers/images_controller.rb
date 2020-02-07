@@ -8,7 +8,9 @@ class ImagesController < ApplicationController
   end
 
   def index
-    @images = Image.all.order('created_at DESC')
+    @images = Image.all
+    @images = tag_param[:tag] ? @images.tagged_with(tag_param[:tag]) : @images
+    @images = @images.order('created_at DESC')
   end
 
   def create
@@ -31,5 +33,9 @@ class ImagesController < ApplicationController
 
   def image_params
     params.require(:image).permit(:link, :tag_list)
+  end
+
+  def tag_param
+    params.permit(:tag)
   end
 end

@@ -1,5 +1,3 @@
-# rubocop:disable LineLength
-
 Image.create([
   { link: 'https://www.petmd.com/sites/default/files/petmd-puppy-weight.jpg' },
   { link: 'https://cdn.aarp.net/content/dam/aarp/money/scams_fraud/2019/12/1140-puppy-sad.jpg' },
@@ -22,5 +20,3 @@ Image.create([
   { link: 'https://www.telegraph.co.uk/content/dam/news/2017/11/11/Lam1_trans_NvBQzQNjv4BqnAdySV0BR-4fDN_-_p756cVfcy8zLGPV4EhRkjQy7tg.jpg' },
   { link: 'https://www.carscoops.com/wp-content/uploads/2019/12/tesla-cybercar-render-3-1024x555.jpg' }
 ])
-
-# rubocop:enable LineLength

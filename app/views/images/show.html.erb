@@ -3,6 +3,15 @@
     <%= msg %>
   </div>
 <% end %>
+
 <p>
-    <img class="image" src="<%= @image.link %>"/>
+  <b>Tags: </b><%= @image.tag_list %>
+</p>
+
+<p>
+  <img class="image" src="<%= @image.link %>"/>
+</p>
+
+<p>
+  <%= link_to 'Home Page', images_path %>
 </p>

@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    create_image
 
     if @image.save
       flash[:notice] = 'Image successfully created'
@@ -24,7 +24,12 @@ class ImagesController < ApplicationController
 
   private
 
+  def create_image
+    @image = Image.new(link: image_params[:link])
+    @image.tag_list.add(image_params[:tag_list], parse: true)
+  end
+
   def image_params
-    params.require(:image).permit(:link)
+    params.require(:image).permit(:link, :tag_list)
   end
 end

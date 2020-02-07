@@ -21,8 +21,13 @@
   </p> 
 
   <p>
+    <%= form.label :tag_list %><br>
+    <%= form.text_field :tag_list %>
+  </p> 
+
+  <p>
     <%= form.submit :Save %>
   </p>
 
-  <%= link_to 'Back', images_path %>
+  <%= link_to 'Home Page', images_path %>
 <% end %>

@@ -13,5 +13,10 @@
 </p>
 
 <p>
+    <%= link_to 'Delete', image_path(@image), method: :delete, 
+    data: {confirm: 'Confirm to delete?'} %>
+</p>
+
+<p>
   <%= link_to 'Home Page', images_path %>
 </p>

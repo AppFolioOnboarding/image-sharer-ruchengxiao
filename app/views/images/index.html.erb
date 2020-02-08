@@ -1,4 +1,9 @@
 <h1>Listing Articles</h1>
+<% flash.each do |type, msg| %>
+  <div class="flash-<%= type %>">
+    <%= msg %>
+  </div>
+<% end %>
 
 <%= link_to 'New image', new_image_path %>
 <br />

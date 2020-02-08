@@ -24,6 +24,16 @@ class ImagesController < ApplicationController
     end
   end
 
+  def destroy
+    if Image.find(params[:id]).destroy
+      flash[:notice] = "Successfully delete the Image"
+    else
+      flash[:notice] = "Failed to delete the Image"
+    end
+
+    redirect_to Image
+  end
+
   private
 
   def create_image

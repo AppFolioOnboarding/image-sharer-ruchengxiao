@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
     create_image
 
     if @image.save
-      flash[:notice] = 'Image successfully created'
+      flash[:notice] = 'You have successfully added an image.'
       redirect_to @image
     else
       render :new
@@ -25,16 +25,20 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    if Image.find(params[:id]).destroy
-      flash[:notice] = "Successfully delete the Image"
-    else
-      flash[:notice] = "Failed to delete the Image"
-    end
+    flash[:notice] = detroy_image
 
     redirect_to Image
   end
 
   private
+
+  def detroy_image
+    if Image.find(params[:id]).destroy
+      'You have successfully deleted the image.'
+    else
+      'Failed to delete the Image'
+    end
+  end
 
   def create_image
     @image = Image.new(link: image_params[:link])

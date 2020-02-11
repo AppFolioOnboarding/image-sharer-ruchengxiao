@@ -2,14 +2,14 @@
 <%= form_with scope: :image, url: images_path, local: true do |form| %>
 
   <% if @image.errors.any? %>
-    <div class="error-message">
+    <div>
       <h2>
         <%= pluralize(@image.errors.count, "error") %> prohibited
         this image from being saved:
       </h2>
       <ul>
         <% @image.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li class="error-message"><%= msg %></li>
         <% end %>
       </ul>
     </div>
@@ -17,12 +17,12 @@
 
   <p>
     <%= form.label :link %><br>
-    <%= form.text_field :link %>
+    <%= form.text_field :link, id: 'link'%>
   </p> 
 
   <p>
     <%= form.label :tag_list %><br>
-    <%= form.text_field :tag_list %>
+    <%= form.text_field :tag_list, id: 'tag_list'%>
   </p> 
 
   <p>

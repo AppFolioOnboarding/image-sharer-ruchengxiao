@@ -5,20 +5,25 @@
   </div>
 <% end %>
 
-<%= link_to 'New image', new_image_path %>
+<div><%= link_to 'New Image', new_image_path %></div>
+<%= link_to 'Clear Filter', images_path %>
 <br />
-<% @images.each do |image| %>
-  <b>Tags: </b>
-    <% image.tag_list.each do |tag|%>
-    <%= link_to tag, images_path(tag: tag) %>  
+<div id="image-list">
+  <% @images.each do |image| %>
+    <div class="image-container">
+      <b>Tags: </b>
+      <div class="tag">
+        <% image.tag_list.each do |tag|%>
+          <%= link_to tag, images_path(tag: tag) %>  
+        <% end %>
+      </div>
+
+      <img id="image" src="<%= image.link %>"/>
+
+      <p>
+        <%= link_to 'Show', image_path(image) %>
+      </p>
+      <br />
+    </div>
   <% end %>
-
-  <p>
-    <img class="image" src="<%= image.link %>"/>
-  </p>
-
-  <p>
-    <%= link_to 'Show', image_path(image) %>
-  </p>
-  <br />
-<% end %>
+</div>

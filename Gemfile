@@ -41,10 +41,12 @@ group :production do
 end
 
 group :test do
+  gem 'ae_page_objects'
   gem 'capybara'
   gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'pry'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

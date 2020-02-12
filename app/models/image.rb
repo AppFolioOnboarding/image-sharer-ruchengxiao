@@ -15,10 +15,11 @@ class Image < ApplicationRecord
   end
 
   def image?
-    url = URI.parse(link)
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
+    is_image = false
+    %w[.jpeg .img .jpg .gif].any? do |ending|
+      is_image = true if link.to_s.end_with?(ending)
+    end
 
-    http.head(url.request_uri)['Content-Type'].start_with? 'image'
+    is_image
   end
 end

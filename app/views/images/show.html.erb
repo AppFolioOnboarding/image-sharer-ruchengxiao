@@ -5,11 +5,16 @@
 <% end %>
 
 <p>
-  <b>Tags: </b><%= @image.tag_list %>
+  <b>Tags: </b><div id="tags"><%= @image.tag_list%></div>
 </p>
 
 <p>
   <img class="image" src="<%= @image.link %>"/>
+</p>
+
+<p>
+    <%= link_to 'Delete', image_path(@image), method: :delete, 
+    data: {confirm: 'Are you sure?'} %>
 </p>
 
 <p>
